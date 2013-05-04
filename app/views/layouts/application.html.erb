@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Startershipper</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="header">
+    <%= image_tag("/assets/logo.png") %>
+  </div>
+    <nav>
+      <%= link_to "Home", home_url %> |
+      <%= link_to "Network", networks_url %> |
+      <%= link_to "Groups", groups_url %> |
+      <%= link_to "Ideas", ideas_url %> |
+      <%= link_to "Posts", posts_url %> |
+      <%= link_to "Events", events_url %> |
+   </nav>
+
+<%= yield %>
+
+</body>
+</html>

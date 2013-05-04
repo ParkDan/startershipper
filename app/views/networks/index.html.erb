@@ -1,0 +1,30 @@
+<h1>Networks</h1>
+
+<p><%= link_to 'Add a New Network', new_network_url %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Caption</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @networks.each do |network| %>
+    <tr>
+      <td><%= network.name %></td>
+      <td><%= network.caption %></td>
+  
+      <td><%= link_to 'Show', network_url(network) %></td>
+      <td><%= link_to 'Edit', edit_network_url(network) %></td>
+      <td><%= link_to 'Destroy', network_url(network), method: 'delete', data: { confirm: "Do you really want to delete this network?" } %></td>
+
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+

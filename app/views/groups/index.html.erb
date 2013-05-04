@@ -1,0 +1,32 @@
+<h1>Groups</h1>
+
+<p><%= link_to 'Add a New Group', new_group_url %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Caption</th>
+      <th>Member limit</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @groups.each do |group| %>
+    <tr>
+      <td><%= group.name %></td>
+      <td><%= group.caption %></td>
+      <td><%= group.member_limit %></td>
+  
+      <td><%= link_to 'Show', group_url(group) %></td>
+      <td><%= link_to 'Edit', edit_group_url(group) %></td>
+      <td><%= link_to 'Destroy', group_url(group), method: 'delete', data: { confirm: "Do you really want to delete this group?" } %></td>
+
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+

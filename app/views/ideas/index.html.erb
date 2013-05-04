@@ -1,0 +1,36 @@
+<h1>Ideas</h1>
+
+<p><%= link_to 'Add a New Idea', new_idea_url %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Caption</th>
+      <th>Timestamp</th>
+      <th>User</th>
+      <th>Group</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @ideas.each do |idea| %>
+    <tr>
+      <td><%= idea.name %></td>
+      <td><%= idea.caption %></td>
+      <td><%= idea.timestamp %></td>
+      <td><%= idea.user_id %></td>
+      <td><%= idea.group_id %></td>
+  
+      <td><%= link_to 'Show', idea_url(idea) %></td>
+      <td><%= link_to 'Edit', edit_idea_url(idea) %></td>
+      <td><%= link_to 'Destroy', idea_url(idea), method: 'delete', data: { confirm: "Do you really want to delete this idea?" } %></td>
+
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+

@@ -1,0 +1,26 @@
+<h1>Editing Group #<%= @group.id %></h1>
+
+
+<%= form_tag(group_url(@group), method: 'put') do %>
+
+  <div>
+    <%= label_tag :name %><br />
+    <%= text_field_tag :name, @group.name %>
+  </div>
+
+  <div>
+    <%= label_tag :caption %><br />
+    <%= text_field_tag :caption, @group.caption %>
+  </div>
+
+  <div>
+    <%= label_tag :member_limit %><br />
+    <%= number_field_tag :member_limit, @group.member_limit %>
+  </div>
+
+  
+  <div>
+    <%= submit_tag "Update Group" %>
+  </div>
+
+<% end %>

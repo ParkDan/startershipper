@@ -1,0 +1,36 @@
+<h1>Editing Idea #<%= @idea.id %></h1>
+
+
+<%= form_tag(idea_url(@idea), method: 'put') do %>
+
+  <div>
+    <%= label_tag :name %><br />
+    <%= text_field_tag :name, @idea.name %>
+  </div>
+
+  <div>
+    <%= label_tag :caption %><br />
+    <%= text_field_tag :caption, @idea.caption %>
+  </div>
+
+  <div>
+    <%= label_tag :timestamp %><br />
+    <%= datetime_select_tag :timestamp, @idea.timestamp %>
+  </div>
+
+  <div>
+    <%= label_tag :user_id %><br />
+    <%= number_field_tag :user_id, @idea.user_id %>
+  </div>
+
+  <div>
+    <%= label_tag :group_id %><br />
+    <%= number_field_tag :group_id, @idea.group_id %>
+  </div>
+
+  
+  <div>
+    <%= submit_tag "Update Idea" %>
+  </div>
+
+<% end %>
