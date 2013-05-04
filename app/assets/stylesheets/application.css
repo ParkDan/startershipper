@@ -8,8 +8,8 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
  *= require_tree .
+ *= require_self
  */
  .header{
     height:70px;
@@ -33,5 +33,11 @@ ul, li{
 
 .container{
   width: 960px;
+  background-color: white;
+  min-height: 700px;
+}
 
+nav{
+  width: 400px;
+  float: left;
 }

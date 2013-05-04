@@ -10,6 +10,7 @@
   <div class="header">
     <%= image_tag("/assets/logo.png") %>
   </div>
+  <div class='container'
     <nav>
       <%= link_to "Home", home_url %> |
       <%= link_to "Network", networks_url %> |
@@ -18,8 +19,16 @@
       <%= link_to "Posts", posts_url %> |
       <%= link_to "Events", events_url %> |
    </nav>
+   <form class="navbar-form pull-right">
+                 <% if user_signed_in? %>
+                    Signed in as <%= current_user.email %>. Not you?
+                    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+                  <% else %>
+                    <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
+                <% end %>
+  </form>
 
 <%= yield %>
-
+</div>
 </body>
 </html>
