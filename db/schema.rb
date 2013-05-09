@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130504183809) do
+ActiveRecord::Schema.define(:version => 20130509032840) do
 
   create_table "events", :force => true do |t|
     t.string   "title"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20130504183809) do
     t.string  "name"
     t.string  "caption"
     t.integer "member_limit"
+    t.integer "network_id"
   end
 
   create_table "ideas", :force => true do |t|
@@ -40,7 +41,7 @@ ActiveRecord::Schema.define(:version => 20130504183809) do
 
   create_table "networks", :force => true do |t|
     t.string "name"
-    t.string "caption"
+    t.string "password"
   end
 
   create_table "posts", :force => true do |t|
@@ -49,6 +50,15 @@ ActiveRecord::Schema.define(:version => 20130504183809) do
     t.datetime "timestamp"
     t.integer  "user_id"
     t.integer  "group_id"
+  end
+
+  create_table "profiles", :force => true do |t|
+    t.string  "name"
+    t.string  "meet_pref"
+    t.string  "avail_times"
+    t.text    "bio"
+    t.integer "user_id"
+    t.integer "network_id"
   end
 
   create_table "users", :force => true do |t|
@@ -64,6 +74,8 @@ ActiveRecord::Schema.define(:version => 20130504183809) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.integer  "profile_id"
+    t.integer  "network_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

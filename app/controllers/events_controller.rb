@@ -19,10 +19,10 @@ class EventsController < ApplicationController
     @event.date = params[:date]
     @event.start_time = params[:start_time]
     @event.end_time = params[:end_time]
-    @event.timestamp = params[:timestamp]
+    @event.timestamp = Time.now
     @event.user_id = params[:user_id]
     @event.group_id = params[:group_id]
-    
+
     if @event.save
             redirect_to events_url
           else
@@ -41,10 +41,9 @@ class EventsController < ApplicationController
     @event.date = params[:date]
     @event.start_time = params[:start_time]
     @event.end_time = params[:end_time]
-    @event.timestamp = params[:timestamp]
     @event.user_id = params[:user_id]
     @event.group_id = params[:group_id]
-    
+
     if @event.save
             redirect_to events_url
           else

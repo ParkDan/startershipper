@@ -1,0 +1,36 @@
+<h1>Editing Profile #<%= @profile.id %></h1>
+
+
+<%= form_tag(profile_url(@profile), method: 'put') do %>
+
+  <div>
+    <%= label_tag :name %><br />
+    <%= text_field_tag :name, @profile.name %>
+  </div>
+
+  <div>
+    <%= label_tag :meet_pref %><br />
+    <%= text_field_tag :meet_pref, @profile.meet_pref %>
+  </div>
+
+  <div>
+    <%= label_tag :avail_times %><br />
+    <%= text_field_tag :avail_times, @profile.avail_times %>
+  </div>
+
+  <div>
+    <%= label_tag :bio %><br />
+    <%= text_area_tag :bio, @profile.bio %>
+  </div>
+
+  <div>
+    <%= label_tag :user_id %><br />
+    <%= number_field_tag :user_id, @profile.user_id %>
+  </div>
+
+  
+  <div>
+    <%= submit_tag "Update Profile" %>
+  </div>
+
+<% end %>

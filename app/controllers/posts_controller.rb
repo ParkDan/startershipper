@@ -16,10 +16,10 @@ class PostsController < ApplicationController
     @post = Post.new
     @post.title = params[:title]
     @post.caption = params[:caption]
-    @post.timestamp = params[:timestamp]
+    @post.timestamp = Time.now
     @post.user_id = params[:user_id]
     @post.group_id = params[:group_id]
-    
+
     if @post.save
             redirect_to posts_url
           else
@@ -35,10 +35,9 @@ class PostsController < ApplicationController
     @post = Post.find_by_id(params[:id])
     @post.title = params[:title]
     @post.caption = params[:caption]
-    @post.timestamp = params[:timestamp]
     @post.user_id = params[:user_id]
     @post.group_id = params[:group_id]
-    
+
     if @post.save
             redirect_to posts_url
           else

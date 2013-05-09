@@ -16,10 +16,10 @@ class IdeasController < ApplicationController
     @idea = Idea.new
     @idea.name = params[:name]
     @idea.caption = params[:caption]
-    @idea.timestamp = params[:timestamp]
+    @idea.timestamp = Time.now
     @idea.user_id = params[:user_id]
     @idea.group_id = params[:group_id]
-    
+
     if @idea.save
             redirect_to ideas_url
           else
@@ -35,10 +35,9 @@ class IdeasController < ApplicationController
     @idea = Idea.find_by_id(params[:id])
     @idea.name = params[:name]
     @idea.caption = params[:caption]
-    @idea.timestamp = params[:timestamp]
     @idea.user_id = params[:user_id]
     @idea.group_id = params[:group_id]
-    
+
     if @idea.save
             redirect_to ideas_url
           else

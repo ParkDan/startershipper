@@ -11,13 +11,21 @@
     <%= image_tag("/assets/logo.png") %>
   </div>
   <div class='container'
+    <%= notice %>
     <nav>
       <%= link_to "Home", home_url %> |
-      <%= link_to "Network", networks_url %> |
-      <%= link_to "Groups", groups_url %> |
-      <%= link_to "Ideas", ideas_url %> |
-      <%= link_to "Posts", posts_url %> |
-      <%= link_to "Events", events_url %> |
+        <% if session[:network_id] %>
+          <%= link_to 'news feed', network_url(session[:network_id]) %> |
+          <% else  %>
+          <%= link_to "Networks", networks_url %> |
+          <% end  %>
+      <% if user_signed_in? %>
+        <% if Profile.find_by_user_id(current_user.id)%>
+          <%= link_to "my profile", profile_url(current_user.id) %> |
+        <% else %>
+         <%= link_to "New Profile", new_profile_url %>
+        <% end %>
+      <% end %>
    </nav>
    <form class="navbar-form pull-right">
                  <% if user_signed_in? %>
@@ -27,7 +35,6 @@
                     <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
                 <% end %>
   </form>
-
 <%= yield %>
 </div>
 </body>
