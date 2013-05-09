@@ -1,16 +1,13 @@
 <h1>Users</h1>
 
-<table>
+<table class="table table-hover table-bordered">
   <thead>
     <tr>
       <th>Name</th>
       <th>Meet pref</th>
       <th>Avail times</th>
       <th>Bio</th>
-      <th>User</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Network</th>
     </tr>
   </thead>
 
@@ -21,7 +18,7 @@
       <td><%= profile.meet_pref %></td>
       <td><%= profile.avail_times %></td>
       <td><%= profile.bio %></td>
-      <td><%= profile.user_id %></td>
+      <td><%= profile.network_id %></td>
 
     </tr>
   <% end %>

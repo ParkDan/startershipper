@@ -23,7 +23,7 @@
         <% if Profile.find_by_user_id(current_user.id)%>
           <%= link_to "my profile", profile_url(current_user.id) %> |
         <% else %>
-         <%= link_to "New Profile", new_profile_url %>
+         <%= link_to "+Profile", new_profile_url, class: "btn btn-s" %>
         <% end %>
       <% end %>
    </nav>

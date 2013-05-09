@@ -2,7 +2,7 @@
 
 <p><%= link_to 'Add a New Post', new_post_url %></p>
 
-<table>
+<table class="table table-hover table-bordered">
   <thead>
     <tr>
       <th>Title</th>
@@ -10,9 +10,6 @@
       <th>Timestamp</th>
       <th>User</th>
       <th>Group</th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
@@ -24,7 +21,7 @@
       <td><%= post.timestamp %></td>
       <td><%= post.user_id %></td>
       <td><%= post.group_id %></td>
-  
+
       <td><%= link_to 'Show', post_url(post) %></td>
       <td><%= link_to 'Edit', edit_post_url(post) %></td>
       <td><%= link_to 'Destroy', post_url(post), method: 'delete', data: { confirm: "Do you really want to delete this post?" } %></td>

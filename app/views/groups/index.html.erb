@@ -2,15 +2,12 @@
 
 <p><%= link_to 'Add a New Group', new_group_url %></p>
 
-<table>
+<table class="table table-hover table-bordered">
   <thead>
     <tr>
       <th>Name</th>
       <th>Caption</th>
       <th>Member limit</th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
@@ -20,7 +17,7 @@
       <td><%= group.name %></td>
       <td><%= group.caption %></td>
       <td><%= group.member_limit %></td>
-  
+
       <td><%= link_to 'Show', group_url(group) %></td>
       <td><%= link_to 'Edit', edit_group_url(group) %></td>
       <td><%= link_to 'Destroy', group_url(group), method: 'delete', data: { confirm: "Do you really want to delete this group?" } %></td>

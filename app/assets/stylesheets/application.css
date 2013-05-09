@@ -31,6 +31,39 @@ ul, li{
   padding: 5px;
 }
 
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+.right{
+  float:right;
+}
+
+.container_med{
+  width:620px;
+  border: solid thin;
+  min-height:700px;
+  margin: 10px;
+  padding:10px;
+}
+
+.left{
+  float:left;
+}
+.sidebar{
+  width:250px;
+  border: solid thin;
+  min-height:300px;
+  margin:10px 10px 10px 0px;
+  padding:10px;
+}
+
 .container{
   width: 960px;
   background-color: white;
