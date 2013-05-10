@@ -6,11 +6,10 @@
 
    <div class="sidebar left">
     <h4>Users:</h4>
-    <% User.all.each do |x| %>
+    <% @users.each do |x| %>
     <%= x.profile.name %>
     <% end %>
   </div>
-
 
   <div class="container_med left">
     <h4>Feed:</h4>

@@ -18,9 +18,9 @@ Startershipper::Application.routes.draw do
 
   devise_for :users
 
-  root to: 'Pages#index'
+  root to: 'Posts#home'
 
-  get 'home' => 'Pages#index', as: 'home'
+  get 'home' => 'Posts#home', as: 'home'
 
 
   # Routes for the Group resource:

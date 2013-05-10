@@ -1,8 +1,11 @@
 class PostsController < ApplicationController
+  def home
+  end
+
 
   def index
     @posts = Post.all
-    @user=current_user
+    @users=User.all
   end
 
   def show
