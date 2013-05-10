@@ -1,33 +1,24 @@
-<h1>Posts</h1>
+<h1>Feeds</h1>
+        <%= link_to "+Group", new_group_url, class: "btn btn-success" %>
+        <%= link_to "+Post", new_post_url, class: "btn btn-success"  %>
 
-<p><%= link_to 'Add a New Post', new_post_url %></p>
+<div class="clearfix:after">
+  <div class="container_med left">
+    <h4>Feed:</h4>
+  </div>
 
-<table class="table table-hover table-bordered">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Caption</th>
-      <th>Timestamp</th>
-      <th>User</th>
-      <th>Group</th>
-    </tr>
-  </thead>
+  <div class="sidebar right">
+    <h4>Users:</h4>
+    <% User.all.each do |x| %>
+    <%= x.email %><br>
+    <% end %>
+  </div>
+  <div class="sidebar right">
+    <h4>Groups:</h4>
+    <% Group.all.each do |x| %>
+    <%= x.name %>
+    <% end %>
+  </div>
 
-  <tbody>
-  <% @posts.each do |post| %>
-    <tr>
-      <td><%= post.title %></td>
-      <td><%= post.caption %></td>
-      <td><%= post.timestamp %></td>
-      <td><%= post.user_id %></td>
-      <td><%= post.group_id %></td>
-
-      <td><%= link_to 'Show', post_url(post) %></td>
-      <td><%= link_to 'Edit', edit_post_url(post) %></td>
-      <td><%= link_to 'Destroy', post_url(post), method: 'delete', data: { confirm: "Do you really want to delete this post?" } %></td>
-
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+</div>
 

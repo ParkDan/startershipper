@@ -1,44 +1,11 @@
 Startershipper::Application.routes.draw do
-  # Routes for the Profile resource:
-  # CREATE
-  get '/profiles/new', controller: 'profiles', action: 'new', as: 'new_profile'
-  post '/profiles', controller: 'profiles', action: 'create'
-
-  # READ
-  get '/profiles', controller: 'profiles', action: 'index', as: 'profiles'
-  get '/profiles/:id', controller: 'profiles', action: 'show', as: 'profile'
-
-  # UPDATE
-  get '/profiles/:id/edit', controller: 'profiles', action: 'edit', as: 'edit_profile'
-  put '/profiles/:id', controller: 'profiles', action: 'update'
-
-  # DELETE
-  delete '/profiles/:id', controller: 'profiles', action: 'destroy'
-  #------------------------------
-
   devise_for :users
 
   root to: 'Pages#index'
 
   get 'home' => 'Pages#index', as: 'home'
+  get 'users/:id/profile' => 'Users#profile', as: 'profile'
 
-  # Routes for the Network resource:
-  # CREATE
-  get '/networks/new', controller: 'networks', action: 'new', as: 'new_network'
-  post '/networks', controller: 'networks', action: 'create'
-  post '/networks/:id' => 'networks#verify', as: 'feed_redirect'
-
-  # READ
-  get '/networks', controller: 'networks', action: 'index', as: 'networks'
-  get '/networks/:id', controller: 'networks', action: 'show', as: 'network'
-
-  # UPDATE
-  get '/networks/:id/edit', controller: 'networks', action: 'edit', as: 'edit_network'
-  put '/networks/:id', controller: 'networks', action: 'update'
-
-  # DELETE
-  delete '/networks/:id', controller: 'networks', action: 'destroy'
-  #------------------------------
 
   # Routes for the Group resource:
   # CREATE
@@ -72,24 +39,7 @@ Startershipper::Application.routes.draw do
 
   # DELETE
   delete '/posts/:id', controller: 'posts', action: 'destroy'
-  #------------------------------
-
-  # Routes for the Event resource:
-  # CREATE
-  get '/events/new', controller: 'events', action: 'new', as: 'new_event'
-  post '/events', controller: 'events', action: 'create'
-
-  # READ
-  get '/events', controller: 'events', action: 'index', as: 'events'
-  get '/events/:id', controller: 'events', action: 'show', as: 'event'
-
-  # UPDATE
-  get '/events/:id/edit', controller: 'events', action: 'edit', as: 'edit_event'
-  put '/events/:id', controller: 'events', action: 'update'
-
-  # DELETE
-  delete '/events/:id', controller: 'events', action: 'destroy'
-  #------------------------------
+  #-------------------------------
 
   # Routes for the Idea resource:
   # CREATE
