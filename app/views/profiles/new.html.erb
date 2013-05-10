@@ -23,6 +23,14 @@
     <%= text_area_tag :bio %>
     </div>
 
+    <div>
+    <%= label_tag :network %><br />
+    <% Network.all.each do |network| %>
+        <option value="<%= network.id %>"><%= network.name %></option>
+    <% end %>
+    </select>
+    <%= select_tag :network_id, options_from_collection_for_select(Network.all, :id, :name ) %>
+   </div>
 
   <input name="user_id" type="hidden" value="<%= current_user.id %>">
 

@@ -1,62 +1,33 @@
-<h1>Feed</h1>
-        <%= link_to "+Group", new_group_url, class: "btn btn-success" %>
-        <%= link_to "+Post", new_post_url, class: "btn btn-success"  %>
+<h1>Posts</h1>
 
-<div class="clearfix:after">
+<p><%= link_to 'Add a New Post', new_post_url %></p>
 
-   <div class="sidebar left">
-    <h4>Users:</h4>
-    <% @users.each do |x| %>
-    <%= x.profile.name %>
-    <% end %>
-  </div>
+<table class="table table-hover table-bordered">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Caption</th>
+      <th>Timestamp</th>
+      <th>User</th>
+      <th>Group</th>
+    </tr>
+  </thead>
 
-  <div class="container_med left">
-    <h4>Feed:</h4>
-        <h1>Posts</h1>
+  <tbody>
+  <% @posts.each do |post| %>
+    <tr>
+      <td><%= post.title %></td>
+      <td><%= post.caption %></td>
+      <td><%= post.timestamp %></td>
+      <td><%= post.user_id %></td>
+      <td><%= post.group_id %></td>
 
-        <p><%= link_to 'Add a New Post', new_post_url %></p>
+      <td><%= link_to 'Show', post_url(post) %></td>
+      <td><%= link_to 'Edit', edit_post_url(post) %></td>
+      <td><%= link_to 'Destroy', post_url(post), method: 'delete', data: { confirm: "Do you really want to delete this post?" } %></td>
 
-
-        <table class="table table-hover table-bordered">
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Caption</th>
-              <th>Timestamp</th>
-              <th>User</th>
-              <th>Group</th>
-            </tr>
-          </thead>
-
-          <tbody>
-          <% @posts.each do |post| %>
-            <tr>
-              <td><%= post.title %></td>
-              <td><%= post.caption %></td>
-              <td><%= post.timestamp %></td>
-              <td><%= post.user_id %></td>
-              <td><%= post.group_id %></td>
-
-              <td><%= link_to 'Show', post_url(post) %></td>
-              <td><%= link_to 'Edit', edit_post_url(post) %></td>
-              <td><%= link_to 'Destroy', post_url(post), method: 'delete', data: { confirm: "Do you really want to delete this post?" } %></td>
-
-            </tr>
-          <% end %>
-          </tbody>
-        </table>
-
-
-
-  </div>
-
-  <div class="sidebar right">
-    <h4>Groups:</h4>
-    <% current_user.groups.each do |x| %>
-    <%= x.name %>
-    <% end %>
-  </div>
-
-</div>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
 

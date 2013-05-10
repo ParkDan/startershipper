@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130510065326) do
+ActiveRecord::Schema.define(:version => 20130509032840) do
+
+  create_table "events", :force => true do |t|
+    t.string   "title"
+    t.string   "caption"
+    t.date     "date"
+    t.time     "start_time"
+    t.time     "end_time"
+    t.datetime "timestamp"
+    t.integer  "user_id"
+    t.integer  "group_id"
+  end
 
   create_table "groups", :force => true do |t|
     t.string  "name"
@@ -28,11 +39,9 @@ ActiveRecord::Schema.define(:version => 20130510065326) do
     t.integer  "group_id"
   end
 
-  create_table "memberships", :force => true do |t|
-    t.string   "user_id"
-    t.string   "group_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+  create_table "networks", :force => true do |t|
+    t.string "name"
+    t.string "password"
   end
 
   create_table "posts", :force => true do |t|

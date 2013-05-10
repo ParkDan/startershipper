@@ -23,6 +23,15 @@
     <%= text_area_tag :bio, @profile.bio %>
   </div>
 
+   <div>
+    <%= label_tag :network %><br />
+    <% Network.all.each do |network| %>
+        <option value="<%= network.id %>"><%= network.name %></option>
+    <% end %>
+    </select>
+    <%= select_tag :network_id, options_from_collection_for_select(Network.all, :id, :name ) %>
+   </div>
+
   <div>
     <%= submit_tag "Update Profile" %>
   </div>

@@ -1,0 +1,26 @@
+<h1><%= @network.name %></h1>
+        <%= link_to "+Group", new_group_url, class: "btn btn-success" %>
+        <%= link_to "+Post", new_post_url, class: "btn btn-success"  %>
+
+<div class="clearfix:after">
+  <div class="container_med left">
+    <h4>Feed:</h4>
+
+  </div>
+
+
+  <div class="sidebar right">
+    <h4>Users:</h4>
+    <% @network.profiles.each do |x| %>
+    <%= x.name %><br>
+    <% end %>
+  </div>
+  <div class="sidebar right">
+    <h4>Groups:</h4>
+    <% @network.groups.each do |x| %>
+    <%= x.name %>
+    <% end %>
+  </div>
+
+</div>
+
