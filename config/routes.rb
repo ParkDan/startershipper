@@ -1,10 +1,26 @@
 Startershipper::Application.routes.draw do
+  # Routes for the Profile resource:
+  # CREATE
+  get '/profiles/new', controller: 'profiles', action: 'new', as: 'new_profile'
+  post '/profiles', controller: 'profiles', action: 'create'
+
+  # READ
+  get '/profiles', controller: 'profiles', action: 'index', as: 'profiles'
+  get '/profiles/:id', controller: 'profiles', action: 'show', as: 'profile'
+
+  # UPDATE
+  get '/profiles/:id/edit', controller: 'profiles', action: 'edit', as: 'edit_profile'
+  put '/profiles/:id', controller: 'profiles', action: 'update'
+
+  # DELETE
+  delete '/profiles/:id', controller: 'profiles', action: 'destroy'
+  #------------------------------
+
   devise_for :users
 
   root to: 'Pages#index'
 
   get 'home' => 'Pages#index', as: 'home'
-  get 'users/:id/profile' => 'Users#profile', as: 'profile'
 
 
   # Routes for the Group resource:
@@ -39,7 +55,8 @@ Startershipper::Application.routes.draw do
 
   # DELETE
   delete '/posts/:id', controller: 'posts', action: 'destroy'
-  #-------------------------------
+  #------------------------------
+  #------------------------------
 
   # Routes for the Idea resource:
   # CREATE

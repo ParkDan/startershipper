@@ -1,0 +1,36 @@
+<h1>  <%= @profile.name %>'s Profile:</h1>
+<div class="container_med">
+
+
+<p>
+  <b>Meet pref:</b>
+  <%= @profile.meet_pref %>
+</p>
+
+<p>
+  <b>Avail times:</b>
+  <%= @profile.avail_times %>
+</p>
+
+<p>
+  <b>Bio:</b>
+  <%= @profile.bio %>
+</p>
+
+<p>
+  <b>Email Address: </b>
+  <%= current_user.email%>
+</p>
+
+
+<p>
+  <b>Network: </b>
+  <%= current_user.network_id%>
+</p>
+
+
+<%= link_to 'Edit', edit_profile_url(@profile.user_id) %>
+<%= link_to 'Destroy', profile_url(@profile.user_id), method: 'delete', data: { confirm: "Do you really want to delete this profile?" } %><br>
+<%= link_to "Ideas", ideas_url %>
+
+</div>

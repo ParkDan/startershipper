@@ -1,0 +1,28 @@
+<h1>Networks</h1>
+<% if user_signed_in? %>
+<p><%= link_to 'Add a New Network', new_network_url %></p>
+<% end %>
+
+  <ul>
+  <% @networks.each do |network| %>
+    <% if user_signed_in? %>
+      <%= form_tag(feed_redirect_url(network.id), method: 'post') do %>
+      <h3><%= network.name %></h3>
+      <input name="id" type="hidden" value="<%= network.id %>">
+      <li><%= label_tag :password %>
+      <%= password_field_tag :password %> <%= submit_tag "GO", class: "btn" %></li>
+
+
+        <% if :password==network.password %>
+        <%= link_to 'Show', network_url(network) %></td>
+        <% end %>
+      <% end %>
+      <% else %>
+      <li><%= network.name %></li>
+      <% end %>
+
+  <% end %>
+  </ul>
+
+
+
