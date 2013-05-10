@@ -9,11 +9,16 @@ class ProfilesController < ApplicationController
   end
 
   def new
-    @profile = Profile.new
+    if Profile.find_by_id(current_user.id)
+      redirect_to profiles_url notice: "Sorry"
+    else
+      @profile = Profile.new
+    end
+
   end
 
   def create
-    if Profile.find_by_user_id(current_user.id)
+    if Profile.find_by_id(current_user.id)
       redirect_to profiles_url notice: "Sorry please try again"
     else
       @profile = Profile.new
