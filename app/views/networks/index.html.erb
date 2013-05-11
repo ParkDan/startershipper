@@ -1,6 +1,4 @@
-<% if user_signed_in? %>
-<%= link_to '+Network', new_network_url, class: "btn btn-small" %>
-<% end %>
+
   <ul>
   <% @networks.each do |network| %>
       <%= link_to network.name, network_url(network.id), class: "btn btn-large btn-success" %></li>

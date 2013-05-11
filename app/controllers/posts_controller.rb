@@ -21,7 +21,7 @@ class PostsController < ApplicationController
     @post.group_id = params[:group_id]
 
     if @post.save
-            redirect_to posts_url
+            redirect_to network_url(1)
           else
       render 'new'
     end

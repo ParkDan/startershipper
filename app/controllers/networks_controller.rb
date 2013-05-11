@@ -2,6 +2,9 @@ class NetworksController < ApplicationController
 
   def index
     @networks = Network.all
+    if user_signed_in?
+      redirect_to network_url(1)
+    end
   end
 
   def show
