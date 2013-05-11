@@ -6,3 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+n = Network.new
+n.name = 'Starter League'
+n.save
+
+puts 'There is now a Network called Starter League'
+
+g = Group.new
+g.name = 'Starter Shipper'
