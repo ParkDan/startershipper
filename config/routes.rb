@@ -18,9 +18,7 @@ Startershipper::Application.routes.draw do
 
   devise_for :users
 
-  root to: 'Pages#index'
-
-  get 'home' => 'Pages#index', as: 'home'
+  root to: 'networks#index'
 
   # Routes for the Network resource:
   # CREATE
@@ -29,7 +27,7 @@ Startershipper::Application.routes.draw do
   post '/networks/:id' => 'networks#verify', as: 'feed_redirect'
 
   # READ
-  get '/networks', controller: 'networks', action: 'index', as: 'networks'
+  get '/networks', controller: 'networks', action: 'index', as: 'home'
   get '/networks/:id', controller: 'networks', action: 'show', as: 'network'
 
   # UPDATE
@@ -72,23 +70,6 @@ Startershipper::Application.routes.draw do
 
   # DELETE
   delete '/posts/:id', controller: 'posts', action: 'destroy'
-  #------------------------------
-
-  # Routes for the Event resource:
-  # CREATE
-  get '/events/new', controller: 'events', action: 'new', as: 'new_event'
-  post '/events', controller: 'events', action: 'create'
-
-  # READ
-  get '/events', controller: 'events', action: 'index', as: 'events'
-  get '/events/:id', controller: 'events', action: 'show', as: 'event'
-
-  # UPDATE
-  get '/events/:id/edit', controller: 'events', action: 'edit', as: 'edit_event'
-  put '/events/:id', controller: 'events', action: 'update'
-
-  # DELETE
-  delete '/events/:id', controller: 'events', action: 'destroy'
   #------------------------------
 
   # Routes for the Idea resource:

@@ -15,15 +15,14 @@
     <nav>
       <%= link_to "Home", home_url %> |
         <% if session[:network_id] %>
-          <%= link_to 'news feed', network_url(session[:network_id]) %> |
-          <% else  %>
-          <%= link_to "Networks", networks_url %> |
-          <% end  %>
+          <%= link_to 'news feed', network_url(current_user.network_id) %> |
+          <% end %>
       <% if user_signed_in? %>
+        <%= link_to "users", profiles_url %> |
         <% if Profile.find_by_user_id(current_user.id)%>
           <%= link_to "my profile", profile_url(current_user.id) %> |
         <% else %>
-         <%= link_to "+Profile", new_profile_url, class: "btn btn-s" %>
+         <%= link_to "+Profile", new_profile_url, class: "btn btn-s" %> |
         <% end %>
       <% end %>
    </nav>

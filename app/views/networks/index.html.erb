@@ -1,28 +1,24 @@
-<h1>Networks</h1>
 <% if user_signed_in? %>
-<p><%= link_to 'Add a New Network', new_network_url %></p>
+<%= link_to '+Network', new_network_url, class: "btn btn-small" %>
 <% end %>
-
   <ul>
   <% @networks.each do |network| %>
-    <% if user_signed_in? %>
-      <%= form_tag(feed_redirect_url(network.id), method: 'post') do %>
-      <h3><%= network.name %></h3>
-      <input name="id" type="hidden" value="<%= network.id %>">
-      <li><%= label_tag :password %>
-      <%= password_field_tag :password %> <%= submit_tag "GO", class: "btn" %></li>
-
-
-        <% if :password==network.password %>
-        <%= link_to 'Show', network_url(network) %></td>
-        <% end %>
-      <% end %>
-      <% else %>
-      <li><%= network.name %></li>
-      <% end %>
-
+      <li><%= link_to network.name, network_url(network) %></li>
   <% end %>
   </ul>
+<div class="container">
+<ul><br><br>
+<lh>Needs:</lh>
+<li>Addresses the need to rapid prototype the ideas not fortunate enough to be the top twenty ideas pursued for Starternight.</li>
+<li>Allows for students to maintain the starter league network to stay active and productive in the startup community beyond the scope of the course.  </li>
+<li>Facilitates meetups for paired or group programming</li>
+<lh>User Stories:</lh>
+<li>Users can post requests as well as leave comments to post</li>
+<li>Users can be in multiple groups (starter night groups will be starred)</li>
+<li>Users can create an event open to group or network</li>
+<li>Users can create groups and networks</li>
+</ul>
+</div>
 
 
 

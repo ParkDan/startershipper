@@ -68,6 +68,7 @@ ul, li{
   width: 960px;
   background-color: white;
   min-height: 700px;
+  padding: 10px;
 }
 
 nav{
