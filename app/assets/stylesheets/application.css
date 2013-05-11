@@ -53,6 +53,12 @@ ul, li{
   padding:10px;
 }
 
+.posts{
+  border: solid thin;
+  width: 500px;
+  margin-left: 40px;
+}
+
 .left{
   float:left;
 }

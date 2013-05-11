@@ -14,15 +14,13 @@
     <%= text_field_tag :caption %>
   </div>
 
-    <div>
-    <%= label_tag :user_id %><br />
-    <%= number_field_tag :user_id %>
-  </div>
+  <div>
+  <input name="user_id" type="hidden" value="<%= current_user.id %>">
+  <div>
 
-    <div>
-    <%= label_tag :group_id %><br />
-    <%= number_field_tag :group_id %>
-  </div>
+  <div>
+  <!-- <input name="group_id" type="hidden" value= group_id -->
+  <div>
 
 
   <div>

@@ -6,7 +6,6 @@
       <th>Name</th>
       <th>Meet pref</th>
       <th>Avail times</th>
-      <th>Bio</th>
       <th>Network</th>
     </tr>
   </thead>
@@ -14,11 +13,10 @@
   <tbody>
   <% @profiles.each do |profile| %>
     <tr>
-      <td><%= profile.name %></td>
+      <td><%= link_to profile.name, profile_url(profile) %></td>
       <td><%= profile.meet_pref %></td>
       <td><%= profile.avail_times %></td>
-      <td><%= profile.bio %></td>
-      <td><%= profile.network_id %></td>
+      <td><%= Network.find_by_id(profile.network_id).name %></td>
 
     </tr>
   <% end %>

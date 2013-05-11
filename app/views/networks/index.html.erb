@@ -3,7 +3,7 @@
 <% end %>
   <ul>
   <% @networks.each do |network| %>
-      <li><%= link_to network.name, network_url(network) %></li>
+      <%= link_to network.name, network_url(network.id), class: "btn btn-large btn-success" %></li>
   <% end %>
   </ul>
 <div class="container">

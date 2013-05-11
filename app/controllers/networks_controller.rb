@@ -5,6 +5,7 @@ class NetworksController < ApplicationController
   end
 
   def show
+    @posts=Post.all
     @network = Network.find_by_id(params[:id])
   end
 

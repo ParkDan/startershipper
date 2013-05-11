@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
   has_one :profile
+  has_many :groups, :through => :memberships
   has_many :memberships
   belongs_to :network
 end

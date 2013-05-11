@@ -6,8 +6,8 @@
   <thead>
     <tr>
       <th>Title</th>
-      <th>Caption</th>
-      <th>Timestamp</th>
+      <th>Details</th>
+      <th>Created</th>
       <th>User</th>
       <th>Group</th>
     </tr>
@@ -18,7 +18,7 @@
     <tr>
       <td><%= post.title %></td>
       <td><%= post.caption %></td>
-      <td><%= post.timestamp %></td>
+      <td><%= post.timestamp.to_date %></td>
       <td><%= post.user_id %></td>
       <td><%= post.group_id %></td>
 
