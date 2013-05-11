@@ -5,12 +5,14 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
+Network.destroy_all
 n = Network.new
 n.name = 'Starter League'
 n.save
 
 puts 'There is now a Network called Starter League'
-
+Group.destroy_all
 g = Group.new
 g.name = 'Starter Shipper'
+g.save
+puts 'There is now a Group called Starter Shipper'
