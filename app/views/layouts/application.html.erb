@@ -19,7 +19,7 @@
           <% end %>
       <% if user_signed_in? %>
         <%= link_to "users", profiles_url %> |
-          <%= link_to "my profile", new_profile_url, class: "btn btn-s" %> |
+          <%= link_to "Edit Profile", new_profile_url, class: "btn btn-s" %> | <---- Remember to Update this before posting!
        <% end %>
    </nav>
    <form class="navbar-form pull-right">

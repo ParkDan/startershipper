@@ -6,25 +6,25 @@
   <div class="sidebar left">
     <h4>Users:</h4>
     <% @network.profiles.each do |x| %>
-    <%= x.name %><br>
+    <li><%= link_to x.name , profile_url(x.id) %></li>
     <% end %>
   </div>
   <div class="container_med left">
-    <h4>Feed:</h4>
 
 
   <% @posts.each do |post| %>
   <div class="posts">
-      <h5><%= post.title %><li>
+      <li class="bold"><%=post.title%><li>
       <p><%= post.caption %></p>
-      <p><%= post.timestamp.to_date %>
+      <p class = "stamp"><%= post.timestamp.to_date %>
       <% p=Profile.find_by_user_id(post.user_id) %>
       <% if p  %>
         <%= p.name %></p>
       <% end %>
-        <p><%= post.group_id %></p>
+        <% if current_user.id==post.user_id %>
         <%= link_to 'Edit', edit_post_url(post) %>
         <%= link_to 'Destroy', post_url(post), method: 'delete', data: { confirm: "Do you really want to delete this post?" } %>
+        <% end %>
   </div><br>
   <% end %>
 
@@ -33,8 +33,8 @@
 
   <div class="sidebar right">
     <h4>Groups:</h4>
-    <% @network.groups.each do |x| %>
-    <%= x.name %>
+    <% Group.all.each do |x| %>
+     <%= link_to x.name , group_url(x.id) %>
     <% end %>
   </div>
 

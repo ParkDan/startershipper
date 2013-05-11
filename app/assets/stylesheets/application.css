@@ -31,6 +31,13 @@ ul, li{
   padding: 5px;
 }
 
+.stamp{
+  font-size: .75em;
+  float: right;
+  color: grey;
+}
+
+
 
 .clearfix:after {
   content: ".";
@@ -54,11 +61,13 @@ ul, li{
 }
 
 .posts{
-  border: solid thin;
-  width: 500px;
-  margin-left: 40px;
+  background-color: #F7FAFB;
+  width: 620px;
 }
 
+.bold{
+  font-weight: bold;
+}
 .left{
   float:left;
 }

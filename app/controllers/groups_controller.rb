@@ -16,8 +16,6 @@ class GroupsController < ApplicationController
     @group = Group.new
     @group.name = params[:name]
     @group.caption = params[:caption]
-    @group.member_limit = params[:member_limit]
-    
     if @group.save
             redirect_to groups_url
           else
@@ -33,8 +31,6 @@ class GroupsController < ApplicationController
     @group = Group.find_by_id(params[:id])
     @group.name = params[:name]
     @group.caption = params[:caption]
-    @group.member_limit = params[:member_limit]
-    
     if @group.save
             redirect_to groups_url
           else
