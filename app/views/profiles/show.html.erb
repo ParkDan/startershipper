@@ -22,8 +22,6 @@
   <%= User.find_by_id(@profile.user_id).email%>
 </p>
 
-<%= link_to 'Edit', edit_profile_url(@profile.user_id) %>
-<%= link_to 'Destroy', profile_url(@profile.user_id), method: 'delete', data: { confirm: "Do you really want to delete this profile?" } %><br>
-<%= link_to "Ideas", ideas_url %>
-
+<%= link_to 'Edit', edit_profile_url(@profile.user_id), class: "btn btn-small btn-success" %>
+<%= link_to 'Destroy', profile_url(@profile.user_id), method: 'delete',class: "btn btn-small btn-danger", data: { confirm: "You sure?" } %><br>
 </div>0

@@ -1,20 +1,14 @@
-<h1>Group #<%= @group.id %></h1>
-
-<p>
-  <b>Name:</b>
-  <%= @group.name %>
-</p>
-
+<h1><%= @group.name %></h1>
 <p>
   <b>Caption:</b>
   <%= @group.caption %>
 </p>
-<p>
+<div class= "container_small right">
   <b>Members:</b>
   <% @group.users.each do |x| %>
-  <%= link_to x.profile.name , profile_url(x.id) %>
-
+  <li><%= link_to x.profile.name , profile_url(x.id) %></li>
   <% end %>
-</p>
+</div>
 
-<%= link_to "Join group" , membership_url(@group.id) %>
+<%= link_to "Join group" , membership_url(@group.id), class: "btn btn-large btn-success" %>
+</div>
