@@ -9,42 +9,28 @@ class ProfilesController < ApplicationController
   end
 
   def new
-    @profile = Profile.new
-  end
-
-  def create
-    if Profile.find_by_user_id(current_user.id)
-      redirect_to profiles_url notice: "Sorry please try again"
-    else
+     unless Profile.find_by_user_id(current_user.id)
       @profile = Profile.new
-      @profile.name = params[:name]
-      @profile.meet_pref = params[:meet_pref]
-      @profile.avail_times = params[:avail_times]
-      @profile.bio = params[:bio]
-      @profile.user_id = current_user.id
-      @profile.network_id=params[:network_id]
-
-      if @profile.save
-              redirect_to profiles_url
-            else
-        render 'new'
-      end
+      @profile.user_id=current_user.id
+      @profile.network_id=1
+      @profile.save
+    else
+      @profile = Profile.find_by_id(current_user.id)
     end
+    redirect_to edit_profile_url(@profile.id)
   end
 
   def edit
-    @profile = Profile.find_by_id(params[:id])
+      @profile = Profile.find_by_id(current_user.id)
   end
 
   def update
-    @profile = Profile.find_by_id(params[:id])
+    @profile = Profile.find_by_id(current_user.id)
     @profile.name = params[:name]
     @profile.meet_pref = params[:meet_pref]
     @profile.avail_times = params[:avail_times]
     @profile.bio = params[:bio]
-    @profile.user_id = params[:user_id]
     @profile.network_id=params[:network_id]
-
 
     if @profile.save
             redirect_to profiles_url

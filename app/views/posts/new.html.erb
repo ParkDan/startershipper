@@ -1,4 +1,6 @@
-<h1>New Post</h1>
+<div>
+<h1>Add a new Post</h1>
+<h3>Post a project, idea, or request to join a group</h3>
 
 
 <%= form_tag(posts_url, method: 'post') do %>
@@ -10,7 +12,7 @@
   </div>
 
     <div>
-    <%= label_tag :caption %><br />
+    <%= label_tag :description %><br />
     <%= text_field_tag :caption %>
   </div>
 
@@ -27,3 +29,4 @@
     <%= submit_tag "Create Post" %>
   </div>
 <% end %>
+</div>

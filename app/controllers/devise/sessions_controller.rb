@@ -16,6 +16,8 @@ class Devise::SessionsController < DeviseController
     set_flash_message(:notice, :signed_in) if is_navigational_format?
     sign_in(resource_name, resource)
     respond_with resource, :location => after_sign_in_path_for(resource)
+    session[:user_id]=current_user.id
+
   end
 
   # DELETE /resource/sign_out
