@@ -16,7 +16,7 @@ class NetworksController < ApplicationController
   def create
     @network = Network.new
     @network.name = params[:name]
-    @network.password = params[:password]
+    # @network.password = params[:password]
 
     if @network.save
             redirect_to networks_url
@@ -24,16 +24,17 @@ class NetworksController < ApplicationController
       render 'new'
     end
   end
-  def verify
-    @network=Network.find_by_id(params[:id])
-    if @network.password==params[:password]
-      session[:network_id]=params[:id]
-      current_user.network_id=params[:id]
-      redirect_to network_url(params[:id])
-    else
-      redirect_to networks_url, notice: "Sorry try again"
-    end
-  end
+
+  # def verify
+  #   @network=Network.find_by_id(params[:id])
+  #   if @network.password==params[:password]
+  #     session[:network_id]=params[:id]
+  #     current_user.network_id=params[:id]
+  #     redirect_to network_url(params[:id])
+  #   else
+  #     redirect_to networks_url, notice: "Sorry try again"
+  #   end
+  # end
   def edit
     @network = Network.find_by_id(params[:id])
   end
@@ -41,7 +42,7 @@ class NetworksController < ApplicationController
   def update
     @network = Network.find_by_id(params[:id])
     @network.name = params[:name]
-    @network.password = params[:password]
+    # @network.password = params[:password]
 
     if @network.save
             redirect_to networks_url
