@@ -29,7 +29,8 @@
                   <% else %>
                     <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
                 <% end %>
-  </form>
+  </form><br><br>
+  <div class = "notice"><%= notice %></div>
 <%= yield %>
 </div>
 </body>

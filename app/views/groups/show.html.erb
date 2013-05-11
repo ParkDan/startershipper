@@ -9,10 +9,12 @@
   <b>Caption:</b>
   <%= @group.caption %>
 </p>
-
 <p>
-  <b>Member limit:</b>
-  <%= @group.member_limit %>
+  <b>Members:</b>
+  <% @group.users.each do |x| %>
+  <%= link_to x.profile.name , profile_url(x.id) %>
+
+  <% end %>
 </p>
 
-
+<%= link_to "Join group" , membership_url(@group.id) %>

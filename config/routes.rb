@@ -43,6 +43,8 @@ Startershipper::Application.routes.draw do
   get '/groups/new', controller: 'groups', action: 'new', as: 'new_group'
   post '/groups', controller: 'groups', action: 'create'
 
+  get '/groups/:id/membership' , controller: 'groups' , action: 'membership' , :as => 'membership'
+
   # READ
   get '/groups', controller: 'groups', action: 'index', as: 'groups'
   get '/groups/:id', controller: 'groups', action: 'show', as: 'group'

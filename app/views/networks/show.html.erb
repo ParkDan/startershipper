@@ -34,7 +34,7 @@
   <div class="sidebar right">
     <h4>Groups:</h4>
     <% Group.all.each do |x| %>
-     <%= link_to x.name , group_url(x.id) %>
+     <li><%= link_to x.name , group_url(x.id) %></li>
     <% end %>
   </div>
 

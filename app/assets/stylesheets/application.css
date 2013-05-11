@@ -37,7 +37,12 @@ ul, li{
   color: grey;
 }
 
-
+.notice{
+  text-align: center;
+  color: red;
+  font-weight: bolder;
+  font-size: 2em;
+}
 
 .clearfix:after {
   content: ".";
